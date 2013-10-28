@@ -15,17 +15,17 @@ function checkHatValue(testvalue) {
         };
     });
     
-};
+}
 
 function matchValue () {
     if (match === true) {
         function x () {
-            alert('You found a match!');
-            window.location.reload();
+            //alert('You found a match!');
+            //window.location.reload();
         };
         setTimeout(x(), 5000);
     }
-};
+}
 
 $(document).ready(function () {
     $("#sorting-form").submit(function( event ) {

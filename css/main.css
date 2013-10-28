@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'harry_pregular';
+    src: url('../assets/harryp__-webfont.eot');
+    src: url('../assets/harryp__-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/harryp__-webfont.woff') format('woff'),
+         url('../assets/harryp__-webfont.ttf') format('truetype'),
+         url('../assets/harryp__-webfont.svg#harry_pregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -18,4 +30,5 @@ html, body {
     margin: -32px 0;
     font-size: 64px;
     text-align: center;
+    font-family: 'harry_pregular', 'fantasy';
 }
