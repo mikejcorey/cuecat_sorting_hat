@@ -32,7 +32,9 @@ function loadVideo () {
     video.show('/assets/Black_Magic_V2.mp4');
 
     setTimeout(function () {
-        $('#announcement').show().fadeIn('slow');
+        var house = $('#announcement').show();
+
+        TweenLite.from(house, 1, { left: '632px' });
     }, 4000);
 
     video.getPlayer().ready(function () {
