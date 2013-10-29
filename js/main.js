@@ -52,8 +52,6 @@ $(document).ready(function () {
     
     window.interval = setInterval(function() { 
         checkHatValue($('#input_id').val());
-        val += 1
-        console.log(val);
         matchValue(loadVideo);
-    }, 1000);
+    }, 100);
 }); 

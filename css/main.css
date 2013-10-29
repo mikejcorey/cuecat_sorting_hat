@@ -14,6 +14,8 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    background-color: black;
+    overflow: hidden;
 }
 
 #sorting-form {
@@ -24,11 +26,12 @@ html, body {
 }
 
 #announcement {
-    position: relative;
-    top: 50%;
-    left: 0;
-    margin: -32px 0;
-    font-size: 64px;
+    position: absolute;
+    z-index: 1;
+    top: 36%;
+    right: 30%;
+    font-size: 100px;
     text-align: center;
     font-family: 'harry_pregular', 'fantasy';
+    color: white;
 }
