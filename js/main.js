@@ -26,20 +26,16 @@ function matchValue (callback) {
     }
 }
 
-function loadVideo (callback) {
+function loadVideo () {
     var video = new $.BigVideo();
     video.init();
     video.show('http://2.s3.envato.com/h264-video-previews/4500753.mp4');
 
-    releaseTheKraken();
-}
-
-function releaseTheKraken() {
-    var player = _V_('big-video-vid_html5_api');
-    player.ready(function () { 
-      this.on('ended', function () {
-        window.location.reload();
-      });
+    video.getPlayer().ready(function () {
+        this.on('ended', function () {
+            alert('this worked');
+            window.location.reload();
+        });
     });
 }
 
