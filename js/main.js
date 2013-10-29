@@ -29,18 +29,33 @@ function matchValue (callback) {
 function loadVideo () {
     var video = new $.BigVideo(),
         cinematics = ['/assets/Black_Magic_V2.mp4', '/assets/Black_Magic_V3.mp4', '/assets/Phoenix_Reveal.mp4'];
+
     function _getCinematic () {
         return cinematics[Math.floor(Math.random() * cinematics.length)];
     }
 
+    function _getTimeout (somePath) {
+        var time = 0;
+
+        if (somePath === '/assets/Phoenix_Reveal.mp4') {
+            time = 6000;
+        } else {
+            time = 3500;
+        }
+
+        return time;
+    }
+
+    var path = _getCinematic();
+
     video.init();
-    video.show(_getCinematic());
+    video.show(path);
 
     setTimeout(function () {
         var house = $('#announcement').show();
 
         TweenLite.from(house, 1, { left: '632px' });
-    }, 4000);
+    }, _getTimeout(path));
 
     video.getPlayer().ready(function () {
         this.on('ended', function () {
