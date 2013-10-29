@@ -28,7 +28,7 @@ function matchValue (callback) {
 function loadVideo (callback) {
     var video = new $.BigVideo();
     video.init();
-    video.show('/assets/animation.mp4');
+    video.show('http://2.s3.envato.com/h264-video-previews/4500753.mp4');
 
     releaseTheKraken();
 }
