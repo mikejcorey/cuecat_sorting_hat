@@ -2,8 +2,10 @@ var match = false;
 var hatval = '';
 var interval;
 var houses = [
-    {'upc': '5556792', 'house': 'djangopuff'},
-    {'upc': 'bar', 'house': 'griffennull'}
+    {'upc': '5556792', 'house': 'Djangopuff'},
+    {'upc': '8357721', 'house': 'Griffimpact'},
+    {'upc': '8358756', 'house': 'Redactaclaw'},
+    {'upc': '8675309', 'house': 'SPSSlitherin'}
 ];
 
 function checkHatValue(testvalue) {
@@ -12,9 +14,8 @@ function checkHatValue(testvalue) {
             $('#announcement').html(obj.house.toUpperCase() + '!!!');
             // set match to true so we know to 
             match = true;
-        };
+        }
     });
-    
 }
 
 function matchValue (callback) {
@@ -47,11 +48,10 @@ $(document).ready(function () {
         event.preventDefault();
     });
     $('#sorting-hat').focus();
-
-    var val = 0;
     
-    window.interval = setInterval(function() { 
+    interval = setInterval(function() { 
         checkHatValue($('#input_id').val());
         matchValue(loadVideo);
     }, 100);
-}); 
+
+});
