@@ -32,9 +32,9 @@ html, body {
 }
 
 @-webkit-keyframes textColorChange {
-    0% {color: #ffffff;}
-    50% {color: #ffd94d;}
-    100% {color: #ffc801;}
+    0% {color: #ffffff; opacity: 1;}
+    50% {color: #ffd94d; opacity: 0.75;}
+    100% {color: #ffc801; opacity: 1;}
 }
 
 #announcement {
