@@ -12,7 +12,7 @@ function checkHatValue(testvalue) {
     $.each(houses, function (key, obj) {
         if ($('#sorting-hat').val() == obj.upc) {
             $('#announcement').html(obj.house.toUpperCase() + '!!!').hide();
-            // set match to true so we know to 
+            // set match to true so we know to
             match = true;
         }
     });
@@ -27,9 +27,14 @@ function matchValue (callback) {
 }
 
 function loadVideo () {
-    var video = new $.BigVideo();
+    var video = new $.BigVideo(),
+        cinematics = ['/assets/Black_Magic_V2.mp4', '/assets/Black_Magic_V3.mp4', '/assets/Phoenix_Reveal.mp4'];
+    function _getCinematic () {
+        return cinematics[Math.floor(Math.random() * cinematics.length)];
+    }
+
     video.init();
-    video.show('/assets/Black_Magic_V2.mp4');
+    video.show(_getCinematic());
 
     setTimeout(function () {
         var house = $('#announcement').show();
@@ -49,8 +54,8 @@ $(document).ready(function () {
         event.preventDefault();
     });
     $('#sorting-hat').focus();
-    
-    interval = setInterval(function() { 
+
+    interval = setInterval(function() {
         checkHatValue($('#input_id').val());
         matchValue(loadVideo);
     }, 100);
