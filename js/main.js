@@ -11,7 +11,7 @@ var houses = [
 function checkHatValue(testvalue) {
     $.each(houses, function (key, obj) {
         if ($('#sorting-hat').val() == obj.upc) {
-            $('#announcement').html(obj.house.toUpperCase() + '!!!');
+            $('#announcement').html(obj.house.toUpperCase() + '!!!').hide();
             // set match to true so we know to 
             match = true;
         }
@@ -29,11 +29,14 @@ function matchValue (callback) {
 function loadVideo () {
     var video = new $.BigVideo();
     video.init();
-    video.show('http://2.s3.envato.com/h264-video-previews/4500753.mp4');
+    video.show('/assets/Black_Magic_V2.mp4');
+
+    setTimeout(function () {
+        $('#announcement').show().fadeIn('slow');
+    }, 4000);
 
     video.getPlayer().ready(function () {
         this.on('ended', function () {
-            alert('this worked');
             window.location.reload();
         });
     });
