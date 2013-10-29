@@ -17,14 +17,29 @@ function checkHatValue(testvalue) {
     
 }
 
-function matchValue () {
+function matchValue (callback) {
     if (match === true) {
-        function x () {
-            //alert('You found a match!');
-            //window.location.reload();
-        };
-        setTimeout(x(), 5000);
+        clearInterval(interval)
+        $('input').fadeOut();
+        callback();
     }
+}
+
+function loadVideo (callback) {
+    var video = new $.BigVideo();
+    video.init();
+    video.show('/assets/animation.mp4');
+
+    releaseTheKraken();
+}
+
+function releaseTheKraken() {
+    var player = _V_('big-video-vid_html5_api');
+    player.ready(function () { 
+      this.on('ended', function () {
+        window.location.reload();
+      });
+    });
 }
 
 $(document).ready(function () {
@@ -32,11 +47,13 @@ $(document).ready(function () {
         event.preventDefault();
     });
     $('#sorting-hat').focus();
+
+    var val = 0;
     
-    interval = setInterval(function() { 
+    window.interval = setInterval(function() { 
         checkHatValue($('#input_id').val());
-
-        matchValue();
-    }, 100);
-
+        val += 1
+        console.log(val);
+        matchValue(loadVideo);
+    }, 1000);
 }); 
