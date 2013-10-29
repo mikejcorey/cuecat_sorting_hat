@@ -18,11 +18,29 @@ function checkHatValue(testvalue) {
     });
 }
 
-function matchValue () {
+function matchValue (callback) {
     if (match === true) {
-        alert('You found a match!');
-        window.location.reload();
+        clearInterval(interval)
+        $('input').fadeOut();
+        callback();
     }
+}
+
+function loadVideo (callback) {
+    var video = new $.BigVideo();
+    video.init();
+    video.show('http://2.s3.envato.com/h264-video-previews/4500753.mp4');
+
+    releaseTheKraken();
+}
+
+function releaseTheKraken() {
+    var player = _V_('big-video-vid_html5_api');
+    player.ready(function () { 
+      this.on('ended', function () {
+        window.location.reload();
+      });
+    });
 }
 
 $(document).ready(function () {
@@ -30,10 +48,10 @@ $(document).ready(function () {
         event.preventDefault();
     });
     $('#sorting-hat').focus();
-
-    interval = setInterval(function() {
+    
+    interval = setInterval(function() { 
         checkHatValue($('#input_id').val());
-
-        matchValue();
+        matchValue(loadVideo);
     }, 100);
+
 });
