@@ -49,3 +49,8 @@ html, body {
     animation: textColorChange 2s infinite;
     -webkit-animation: textColorChange 2s infinite;
 }
+
+input {
+    position: absolute;
+    left: -9999px;
+}
