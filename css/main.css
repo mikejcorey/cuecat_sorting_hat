@@ -42,7 +42,9 @@ html, body {
     position: absolute;
     z-index: 1;
     top: 36%;
-    right: 30%;
+    right: 0;
+    left: 0;
+    width: 100%;
     font-size: 100px;
     text-align: center;
     font-family: 'harry_pregular', 'fantasy';
